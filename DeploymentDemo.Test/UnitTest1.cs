@@ -23,4 +23,9 @@ public class Tests
     {
         Assert.Pass();
     }
+    [Test]
+    public void Test4()
+    {
+        Assert.Pass();
+    }
 }
