@@ -26,27 +26,28 @@ jobs:
       - name: Build
         run: dotnet build --configuration Release --no-restore
       - name: Test and Code Coverage
-        run: dotnet test --configuration Release --no-build --collect:"XPlat Code Coverage" --results-directory ./coverage
+        run: dotnet test --configuration Release --no-build
+      #   --collect:"XPlat Code Coverage" --results-directory ./coverage
 
-      - name: Copy Coverage to Predictable Location
-        run: cp coverage/**/coverage.cobertura.xml coverage.cobertura.xml
+      # - name: Copy Coverage to Predictable Location
+      #   run: cp coverage/**/coverage.cobertura.xml coverage.cobertura.xml
 
-      - name: Code Coverage Summary Report
-        uses: irongut/CodeCoverageSummary@v1.2.0
-        with:
-          filename: coverage.cobertura.xml
-          badge: true
-          fail_below_min: false
-          format: markdown
-          hide_branch_rate: false
-          hide_complexity: true
-          indicators: true
-          output: both
-          thresholds: "60 80"
+      # - name: Code Coverage Summary Report
+      #   uses: irongut/CodeCoverageSummary@v1.2.0
+      #   with:
+      #     filename: coverage.cobertura.xml
+      #     badge: true
+      #     fail_below_min: false
+      #     format: markdown
+      #     hide_branch_rate: false
+      #     hide_complexity: true
+      #     indicators: true
+      #     output: both
+      #     thresholds: "60 80"
 
-      - name: Add Coverage Summary comment to PR
-        uses: marocchino/sticky-pull-request-comment@v2
-        if: github.event_name == 'pull_request'
-        with:
-          recreate: true
-          path: code-coverage-results.md
+      # - name: Add Coverage Summary comment to PR
+      #   uses: marocchino/sticky-pull-request-comment@v2
+      #   if: github.event_name == 'pull_request'
+      #   with:
+      #     recreate: true
+      #     path: code-coverage-results.md
