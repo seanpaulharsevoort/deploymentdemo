@@ -7,10 +7,10 @@ namespace DeploymentDemo.Test
         {
         }
 
-        [Test]
-        public void DikkeMIkTest1()
-        {
-            Assert.Pass();
-        }
+        // [Test]
+        // public void DikkeMIkTest1()
+        // {
+        //     Assert.Pass();
+        // }
     }
 }
